@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.scify.jthinkfreedom.reactors.ApplicationLaunchReactor;
 import org.scify.jthinkfreedom.reactors.RightClickReactor;
+import org.scify.jthinkfreedom.sensors.MouseMotionSensor;
+import org.scify.jthinkfreedom.stimuli.MouseClickStimulus;
 
 /**
  *
@@ -13,21 +17,12 @@ import org.scify.jthinkfreedom.reactors.RightClickReactor;
 public class TestMain {
 
     public static void main(String[] args) {
-        try {
-            URL url = TestMain.class.getResource("../../../eventScripts/rightClick.sh");
-
-            System.out.println();
-            String sCmd = url.getPath();
-            Process p = Runtime.getRuntime().exec(sCmd);
-
-            try {
-                p.waitFor();
-                System.err.println("Right Click!" + p.exitValue());
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    	MouseMotionSensor mouseSensor = new MouseMotionSensor();
+		MouseClickStimulus clickStimulus = new MouseClickStimulus(1);
+		ApplicationLaunchReactor appLaunch = new ApplicationLaunchReactor("/usr/bin/gedit");
+		
+		mouseSensor.addStimulus(clickStimulus);
+		clickStimulus.addSensor(mouseSensor);
+		clickStimulus.addReactor(appLaunch);
     }
 }

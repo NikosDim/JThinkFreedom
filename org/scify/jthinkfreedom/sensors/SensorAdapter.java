@@ -55,6 +55,7 @@ public abstract class SensorAdapter<T> implements ISensor<T> {
      * Updates all stimuli connected to this sensor that data has been
      * received.
      */
+    //proteinw apo updateStimuli na allaxtei se notifyStimuli giati stin ousia den ginetai kapoio update sta stimuli. Apla ta ksupnane
     protected void updateStimuli() {        
         synchronized (ilStimuli) {
             for (IStimulus<T> sCur : ilStimuli)

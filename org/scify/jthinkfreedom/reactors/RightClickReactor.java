@@ -18,8 +18,6 @@ public class RightClickReactor extends ReactorAdapter {
     @Override
     public void react() {
         try {
-//            String[] sCmd = new String[]{"/usr/bin/xte", "'mouseclick 3'"};
-//            String[] sCmd = new String[]{"/usr/bin/xte", "'key A'"};
             
             URL url = RightClickReactor.class.getResource("../../../../eventScripts/rightClick.sh");
             String sCmd = url.getPath();

@@ -18,9 +18,8 @@ public class DoubleClickReactor  extends ReactorAdapter {
     @Override
     public void react() {
         try {
-//            String[] sCmd = new String[]{"/usr/bin/xte", "'mouseclick 3'"};
-//            String[] sCmd = new String[]{"/usr/bin/xte", "'key A'"};
-            URL url = LeftClickReactor.class.getResource("../../../../eventScripts/rightClick.sh");
+
+        	URL url = LeftClickReactor.class.getResource("../../../../eventScripts/rightClick.sh");
             String sCmd = url.getPath();
             // DEBUG LINES
             System.err.println(System.getProperty("os.name"));

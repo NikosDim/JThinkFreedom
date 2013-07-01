@@ -13,9 +13,13 @@ import org.scify.jthinkfreedom.sensors.ISensor;
 public class MouseClickStimulus extends StimulusAdapter<MouseEvent> {
     
     private int assignedButton;
-    
 
-    /**
+    public MouseClickStimulus(int assignedButton) {
+		super();
+		this.assignedButton = assignedButton;
+	}
+
+	/**
      * 
      */
     @Override
@@ -25,11 +29,10 @@ public class MouseClickStimulus extends StimulusAdapter<MouseEvent> {
         {
             return;
         }
-        
         for (ISensor<MouseEvent> isCurSensor : lSensors) {
             
             MouseEvent mouseEvent = isCurSensor.getData();
-            if(mouseEvent.getButton() == assignedButton /* && mouseEvent == MouseEvent.Mouse_Clicked*/ ){
+            if(mouseEvent.getButton() == assignedButton && mouseEvent.getID() == 502 ){
                 callReactors();
             }
         }

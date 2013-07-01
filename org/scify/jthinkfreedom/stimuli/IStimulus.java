@@ -24,6 +24,8 @@ public interface IStimulus<T> {
     public void start();
     public void stop();
     
+    
+    //to onDataReceived that mporei na metonomastei se onDataReady() giati den lamvanete kapoio dedomeno akoma. 
     public void onDataReceived();
     public void callReactors();
 }
